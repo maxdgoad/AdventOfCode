@@ -8,7 +8,7 @@ using AdventOfCode.Utils;
 
 namespace AdventOfCode.Advent2023
 {
-    internal class Advent1FirstHalf
+    internal class Advent2x1
     {
         public static string Run()
         {

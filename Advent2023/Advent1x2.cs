@@ -8,7 +8,7 @@ using AdventOfCode.Utils;
 
 namespace AdventOfCode.Advent2023
 {
-    internal class Advent1SecondHalf
+    internal class Advent1x2
     {
 
         static List<string> validDigits = new List<string> { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
