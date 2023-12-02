@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode.Utils;
 
-namespace AdventOfCode
+namespace AdventOfCode.Euler
 {
     internal static class Euler67
     {
-
         public static string Run()
         {
             var stringArr = FileReader.ReadFile("Triangle.txt");
 
             var intArr = new List<List<int>>();
 
-            for(int i = 0; i < stringArr.Count; i++) 
+            for (int i = 0; i < stringArr.Count; i++)
             {
                 intArr.Add(new List<int>());
                 for (int j = 0; j < stringArr[i].Count; j++)
@@ -28,13 +28,13 @@ namespace AdventOfCode
             {
                 for (int j = 0; j < intArr[i].Count; j++)
                 {
-                    if (intArr[i+1][j] > intArr[i+1][j+1])
+                    if (intArr[i + 1][j] > intArr[i + 1][j + 1])
                     {
-                        intArr[i][j] = intArr[i+1][j] + intArr[i][j];
+                        intArr[i][j] = intArr[i + 1][j] + intArr[i][j];
                     }
                     else
                     {
-                        intArr[i][j] = intArr[i+1][j + 1] + intArr[i][j];
+                        intArr[i][j] = intArr[i + 1][j + 1] + intArr[i][j];
                     }
                 }
             }
