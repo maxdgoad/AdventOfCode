@@ -8,7 +8,7 @@ using AdventOfCode.Utils;
 
 namespace AdventOfCode.Advent2023
 {
-    internal class Advent2x1
+    internal class Advent3x1
     {
 
         public static bool StillGood(string str, string color, int maxCount)

@@ -8,7 +8,7 @@ using AdventOfCode.Utils;
 
 namespace AdventOfCode.Advent2023
 {
-    internal class Advent2x2
+    internal class Advent3x2
     {
         public static bool ColorVal(string str, string color, out int val)
         {
