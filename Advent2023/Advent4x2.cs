@@ -10,11 +10,68 @@ namespace AdventOfCode.Advent2023
 {
     internal class Advent4x2
     {
+        public static int[] vals = new int[218];
+        public static void RunOnI(List<string> line, int i)
+        {
+            var numsInCard = new List<int>();
+            var beforePipe = true;
+            int runningCount = 0;
+            int matchCount = 0;
+            foreach (var str in line)
+            {
+                if (str == "|")
+                {
+                    beforePipe = false;
+                }
+
+                if (beforePipe)
+                {
+                    if (int.TryParse(str, out int val))
+                    {
+                        numsInCard.Add(val);
+                    }
+                }
+                else
+                {
+                    if (int.TryParse(str, out int val))
+                    {
+                        if (numsInCard.Contains(val))
+                        {
+                            matchCount++;
+                        }
+                    }
+                }
+            }
+          
+            for (int x = 1; x < 1+matchCount; x++)
+            {
+                if (i+x < 218)
+                    vals[i+x] += 1;
+            }
+        }
+
         public static string Run()
         {
-            var stringArr = FileReader.ReadFile("Advent4.txt");
+            var stringArr = FileReader.ReadFile("Advent4.txt", " ");
 
             var ans = 0;
+
+            vals[0] = 0;
+
+            for (int i = 0; i < stringArr.Count; i++)
+            {
+                vals[i]++;
+                var line = stringArr[i];
+                for (int j = 0; j < vals[i]; j++)
+                {
+                    RunOnI(line, i);
+                }
+            }
+
+            foreach (var val in vals)
+            {
+                ans += val;
+            }
 
             return ans.ToString();
         }
