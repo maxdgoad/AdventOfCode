@@ -43,7 +43,7 @@ namespace AdventOfCode.Advent2023
             }
             for (int x = 1; x < 1+matchCount; x++)
             {
-                vals[i+x] += 1;
+                vals[i+x] += vals[i];
             }
         }
 
@@ -58,10 +58,9 @@ namespace AdventOfCode.Advent2023
             {
                 vals[i]++;
                 var line = stringArr[i];
-                for (int j = 0; j < vals[i]; j++)
-                {
-                    RunOnI(line, i);
-                }
+
+                RunOnI(line, i);
+                
             }
             foreach (var val in vals)
             {
