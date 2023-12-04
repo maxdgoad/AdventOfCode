@@ -15,7 +15,6 @@ namespace AdventOfCode.Advent2023
         {
             var numsInCard = new List<int>();
             var beforePipe = true;
-            int runningCount = 0;
             int matchCount = 0;
             foreach (var str in line)
             {
@@ -42,11 +41,9 @@ namespace AdventOfCode.Advent2023
                     }
                 }
             }
-          
             for (int x = 1; x < 1+matchCount; x++)
             {
-                if (i+x < 218)
-                    vals[i+x] += 1;
+                vals[i+x] += 1;
             }
         }
 
@@ -55,7 +52,6 @@ namespace AdventOfCode.Advent2023
             var stringArr = FileReader.ReadFile("Advent4.txt", " ");
 
             var ans = 0;
-
             vals[0] = 0;
 
             for (int i = 0; i < stringArr.Count; i++)
@@ -67,12 +63,10 @@ namespace AdventOfCode.Advent2023
                     RunOnI(line, i);
                 }
             }
-
             foreach (var val in vals)
             {
                 ans += val;
             }
-
             return ans.ToString();
         }
     }
