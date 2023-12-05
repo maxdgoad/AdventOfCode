@@ -9,7 +9,7 @@ Stopwatch stopwatch = new Stopwatch();
 
 stopwatch.Start();
 
-var output = Advent4x2.Run();
+var output = Advent5x1.Run();
 
 Console.WriteLine($"Answer: {output}");
 
