@@ -19,9 +19,9 @@ namespace AdventOfCode.Advent2023
             var initRanges = stringArr[0][1..].Select(x => long.Parse(x)).ToList();
 
             List<(long, long)> seeds = new List<(long, long)>();
-            for (int i = 0; i < initRanges.Count; i+=2)
+            for (int i = 0; i < initRanges.Count; i += 2)
             {
-                seeds.Add((initRanges[i], initRanges[i]+ initRanges[i + 1]));
+                seeds.Add((initRanges[i], initRanges[i] + initRanges[i + 1]));
             }
 
             var maps = new List<(List<(long, long)>, List<(long, long)>)>();
@@ -45,10 +45,10 @@ namespace AdventOfCode.Advent2023
 
                     if (isOutputStart && isInputStart && isRange)
                     {
-                        inputRanges.Add((inputStart, inputStart + range-1));
-                        outputRanges.Add((outputStart, outputStart + range-1));
+                        inputRanges.Add((inputStart, inputStart + range - 1));
+                        outputRanges.Add((outputStart, outputStart + range - 1));
                     }
-                    indexes.Add((inputStart, inputStart + range - 1, i-currentHeaderIndex-1));
+                    indexes.Add((inputStart, inputStart + range - 1, i - currentHeaderIndex - 1));
                 }
                 // need to sort the input ranges
                 inputRanges = inputRanges.OrderBy(x => x.Item1).ToList();
@@ -76,7 +76,7 @@ namespace AdventOfCode.Advent2023
 
                         if (inputEnd >= seed.Item2 && inputStart <= seed.Item1)
                         {
-                            newSeeds.Add(( seed.Item1 - inputStart + outputStart, seed.Item2 - inputStart + outputStart));
+                            newSeeds.Add((seed.Item1 - inputStart + outputStart, seed.Item2 - inputStart + outputStart));
                             mapped = true;
                             break;
                         }

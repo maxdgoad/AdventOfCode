@@ -16,7 +16,7 @@ namespace AdventOfCode.Advent2023
 
             var ans = 0;
 
-            foreach(var line in stringArr)
+            foreach (var line in stringArr)
             {
                 int? first = null;
                 int? second = null;
@@ -25,7 +25,7 @@ namespace AdventOfCode.Advent2023
                 for (int i = 0; i < lineStr.Length; i++)
                 {
                     if (!first.HasValue && int.TryParse(lineStr.Substring(i, 1), out var posFirst))
-                    { 
+                    {
                         first = posFirst;
                     }
                     if (!second.HasValue && int.TryParse(lineStr.Substring(lineStr.Length - i - 1, 1), out var posSecond))

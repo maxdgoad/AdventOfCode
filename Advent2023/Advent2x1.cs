@@ -35,18 +35,18 @@ namespace AdventOfCode.Advent2023
             var ans = 0;
             var gameId = 0;
 
-            foreach(var line in stringArr)
+            foreach (var line in stringArr)
             {
                 var goodGame = true;
                 gameId = gameId + 1;
 
-                
+
                 string lineStr = (line.FirstOrDefault() ?? "");
                 lineStr = lineStr.Substring(lineStr.IndexOf(":") + 1);
 
-                var secondParse = lineStr.Split(new char[] { ',', ';'});
+                var secondParse = lineStr.Split(new char[] { ',', ';' });
 
-                foreach(var str in secondParse)
+                foreach (var str in secondParse)
                 {
                     goodGame = StillGood(str, "red", 12) && StillGood(str, "green", 13) && StillGood(str, "blue", 14);
                     if (!goodGame)
@@ -55,7 +55,7 @@ namespace AdventOfCode.Advent2023
                     }
                 }
 
-                if (goodGame) 
+                if (goodGame)
                 {
                     ans += gameId;
                 }

@@ -16,12 +16,12 @@ namespace AdventOfCode.Advent2023
 
             var ans = 0;
 
-            foreach(var line in stringArr)
+            foreach (var line in stringArr)
             {
                 var numsInCard = new List<int>();
                 var beforePipe = true;
                 int runningCount = 0;
-                foreach(var str in line)
+                foreach (var str in line)
                 {
                     if (str == "|")
                     {
@@ -30,7 +30,7 @@ namespace AdventOfCode.Advent2023
 
                     if (beforePipe)
                     {
-                        if(int.TryParse(str, out int val))
+                        if (int.TryParse(str, out int val))
                         {
                             numsInCard.Add(val);
                         }

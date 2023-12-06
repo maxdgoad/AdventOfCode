@@ -12,10 +12,10 @@ namespace AdventOfCode.Advent2023
     {
 
         static List<string> validDigits = new List<string> { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-        
+
         public static bool CurrentIndexIsDigit(string substr, out int val)
         {
-            for (int i = 0; i < validDigits.Count; i++) 
+            for (int i = 0; i < validDigits.Count; i++)
             {
                 if (substr.IndexOf(validDigits[i]) == 0)
                 {
@@ -25,14 +25,14 @@ namespace AdventOfCode.Advent2023
             }
             return int.TryParse(substr.Substring(0, 1), out val);
         }
-        
+
         public static string Run()
         {
             var stringArr = FileReader.ReadFile("Advent1.txt");
 
             var ans = 0;
 
-            foreach(var line in stringArr)
+            foreach (var line in stringArr)
             {
                 int? first = null;
                 int? second = null;
@@ -41,7 +41,7 @@ namespace AdventOfCode.Advent2023
                 for (int i = 0; i < lineStr.Length; i++)
                 {
                     if (!first.HasValue && CurrentIndexIsDigit(lineStr.Substring(i), out var posFirst))
-                    { 
+                    {
                         first = posFirst;
                     }
                     if (!second.HasValue && CurrentIndexIsDigit(lineStr.Substring(lineStr.Length - i - 1), out var posSecond))

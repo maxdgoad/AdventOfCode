@@ -25,12 +25,12 @@ namespace AdventOfCode.Advent2023
             for (int headerNum = 0; headerNum < headers.Count; headerNum++)
             {
                 var currentHeaderIndex = headers[headerNum].Item2;
-                var nextHeaderIndex = headerNum < headers.Count-1 ? headers[headerNum+1].Item2 : stringArr[1..].Count-1;
+                var nextHeaderIndex = headerNum < headers.Count - 1 ? headers[headerNum + 1].Item2 : stringArr[1..].Count - 1;
 
                 var inputRanges = new List<(long, long)>();
                 var outputRanges = new List<(long, long)>();
                 var headerName = headers[headerNum].Item1;
-                for (int i = currentHeaderIndex+1; i < nextHeaderIndex; i++)
+                for (int i = currentHeaderIndex + 1; i < nextHeaderIndex; i++)
                 {
                     var isOutputStart = long.TryParse(stringArr[i][0], out var outputStart);
                     var isInputStart = long.TryParse(stringArr[i][1], out var inputStart);
@@ -45,11 +45,11 @@ namespace AdventOfCode.Advent2023
                 maps.Add((inputRanges, outputRanges));
             }
 
-            foreach ( var map in maps ) 
+            foreach (var map in maps)
             {
                 var newSeeds = new List<long>();
                 var seedsCopy = seeds.ToList();
-                for (int i = 0; i < map.Item1.Count; i++) 
+                for (int i = 0; i < map.Item1.Count; i++)
                 {
                     var (inputStart, inputEnd) = map.Item1[i];
                     var (outputStart, outputEnd) = map.Item2[i];

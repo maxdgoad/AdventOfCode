@@ -22,7 +22,7 @@ namespace AdventOfCode.Advent2023
             var ans = 0;
 
             for (int x = 0; x < stringArr.Count; x++)
-            {             
+            {
                 var line = stringArr[x];
                 string lineStr = (line.FirstOrDefault() ?? "");
 
@@ -33,7 +33,7 @@ namespace AdventOfCode.Advent2023
                         if (x > 0)
                         {
                             // check above
-                            var lineAbove = stringArr[x-1];
+                            var lineAbove = stringArr[x - 1];
                             string lineStrAbove = (lineAbove.FirstOrDefault() ?? "");
                             if (int.TryParse(lineStrAbove.Substring(i, 1), out int blah2))
                             {
@@ -49,20 +49,20 @@ namespace AdventOfCode.Advent2023
                                     // find end index
                                     endIndex = lineStrAbove.LastIndexOf(".", i);
                                 }
-                                
-                                if (int.TryParse(lineStrAbove.Substring(endIndex+1, startIndex - endIndex - 1), out int aboveAns))
+
+                                if (int.TryParse(lineStrAbove.Substring(endIndex + 1, startIndex - endIndex - 1), out int aboveAns))
                                 {
                                     ans += aboveAns;
                                 }
                             }
-                            else 
+                            else
                             {
                                 // if not number above, check left and right diagonals, if index is appropriate
 
                                 // top left
                                 if (i > 0)
                                 {
-                                    if (int.TryParse(lineStrAbove.Substring(i-1, 1), out int blah3))
+                                    if (int.TryParse(lineStrAbove.Substring(i - 1, 1), out int blah3))
                                     {
                                         // we know i is a period
                                         var startIndex = lineStrAbove.LastIndexOf(".", i - 1);
@@ -74,7 +74,7 @@ namespace AdventOfCode.Advent2023
                                         }
                                     }
                                 }
-                                 // top right
+                                // top right
                                 if (i < lineStr.Length - 1)
                                 {
                                     if (int.TryParse(lineStrAbove.Substring(i + 1, 1), out int blah3))
@@ -83,7 +83,7 @@ namespace AdventOfCode.Advent2023
                                         var endIndex = lineStrAbove.IndexOf(".", i + 1);
                                         if (endIndex < 0) endIndex = lineStrAbove.Length;
 
-                                        if (int.TryParse(lineStrAbove.Substring(i+1, endIndex - i - 1), out int topRightDiag))
+                                        if (int.TryParse(lineStrAbove.Substring(i + 1, endIndex - i - 1), out int topRightDiag))
                                         {
                                             ans += topRightDiag;
                                         }
@@ -159,7 +159,7 @@ namespace AdventOfCode.Advent2023
                             var lastPeriodIndex = lineStr.LastIndexOf('.', i - 1);
                             if (lastPeriodIndex < i - 1)
                             {
-                                if (int.TryParse(lineStr.Substring(lastPeriodIndex+1, i-lastPeriodIndex-1), out int leftAns))
+                                if (int.TryParse(lineStr.Substring(lastPeriodIndex + 1, i - lastPeriodIndex - 1), out int leftAns))
                                 {
                                     ans += leftAns;
                                 }
@@ -170,9 +170,9 @@ namespace AdventOfCode.Advent2023
                             // check right
                             var nextPeriodIndex = lineStr.IndexOf('.', i + 1);
                             if (nextPeriodIndex < 0) nextPeriodIndex = lineStr.Length;
-                            if (nextPeriodIndex > i+1)
+                            if (nextPeriodIndex > i + 1)
                             {
-                                if (int.TryParse(lineStr.Substring(i+1, nextPeriodIndex-i-1), out int rightAns))
+                                if (int.TryParse(lineStr.Substring(i + 1, nextPeriodIndex - i - 1), out int rightAns))
                                 {
                                     ans += rightAns;
                                 }
