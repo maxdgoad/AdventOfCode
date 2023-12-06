@@ -1,31 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode.Euler
+﻿namespace AdventOfCode.Euler;
+internal static class Euler2
 {
-    internal static class Euler2
+    public static string Run()
     {
-        public static string Run()
+        var a = 1;
+        var b = 2;
+        var ans = 0;
+
+        while (b < 4000000)
         {
-            var a = 1;
-            var b = 2;
-            var ans = 0;
-
-            while (b < 4000000)
+            if (b % 2 == 0)
             {
-                if (b % 2 == 0)
-                {
-                    ans+=b;
-                }
-                var temp = a;
-                a = b;
-                b += temp;
-
+                ans+=b;
             }
-            return ans.ToString();
+            var temp = a;
+            a = b;
+            b += temp;
+
         }
+        return ans.ToString();
     }
 }
