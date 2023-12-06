@@ -1,62 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using AdventOfCode.Utils;
+﻿using AdventOfCode.Utils;
 
-namespace AdventOfCode.Advent2023
+namespace AdventOfCode.Advent2023;
+internal class Advent4x1
 {
-    internal class Advent4x1
+    public static string Run()
     {
-        public static string Run()
+        var stringArr = FileReader.ReadFile("Advent4.txt", " ");
+
+        var ans = 0;
+
+        foreach (var line in stringArr)
         {
-            var stringArr = FileReader.ReadFile("Advent4.txt", " ");
-
-            var ans = 0;
-
-            foreach (var line in stringArr)
+            var numsInCard = new List<int>();
+            var beforePipe = true;
+            int runningCount = 0;
+            foreach (var str in line)
             {
-                var numsInCard = new List<int>();
-                var beforePipe = true;
-                int runningCount = 0;
-                foreach (var str in line)
+                if (str == "|")
                 {
-                    if (str == "|")
-                    {
-                        beforePipe = false;
-                    }
+                    beforePipe = false;
+                }
 
-                    if (beforePipe)
+                if (beforePipe)
+                {
+                    if (int.TryParse(str, out int val))
                     {
-                        if (int.TryParse(str, out int val))
-                        {
-                            numsInCard.Add(val);
-                        }
+                        numsInCard.Add(val);
                     }
-                    else
+                }
+                else
+                {
+                    if (int.TryParse(str, out int val))
                     {
-                        if (int.TryParse(str, out int val))
+                        if (numsInCard.Contains(val))
                         {
-                            if (numsInCard.Contains(val))
+                            if (runningCount == 0)
                             {
-                                if (runningCount == 0)
-                                {
-                                    runningCount = 1;
-                                }
-                                else
-                                {
-                                    runningCount *= 2;
-                                }
+                                runningCount = 1;
+                            }
+                            else
+                            {
+                                runningCount *= 2;
                             }
                         }
                     }
                 }
-                ans += runningCount;
             }
-
-            return ans.ToString();
+            ans += runningCount;
         }
+
+        return ans.ToString();
     }
 }

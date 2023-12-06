@@ -1,187 +1,179 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using AdventOfCode.Utils;
+﻿using AdventOfCode.Utils;
 
-namespace AdventOfCode.Advent2023
+namespace AdventOfCode.Advent2023;
+internal class Advent3x1
 {
-    internal class Advent3x1
+    // Crawl till find symbol
+    // Then check numbers in 8 directions
+
+    // check left and right
+    // Check up and down. If up and down are not numbers then you know that you can check the diagonals
+    public static string Run()
     {
-        // Crawl till find symbol
-        // Then check numbers in 8 directions
+        var stringArr = FileReader.ReadFile("Advent3.txt");
 
-        // check left and right
-        // Check up and down. If up and down are not numbers then you know that you can check the diagonals
-        public static string Run()
+        var ans = 0;
+
+        for (int x = 0; x < stringArr.Count; x++)
         {
-            var stringArr = FileReader.ReadFile("Advent3.txt");
+            var line = stringArr[x];
+            string lineStr = (line.FirstOrDefault() ?? "");
 
-            var ans = 0;
-
-            for (int x = 0; x < stringArr.Count; x++)
+            for (int i = 0; i < lineStr.Length; i++)
             {
-                var line = stringArr[x];
-                string lineStr = (line.FirstOrDefault() ?? "");
-
-                for (int i = 0; i < lineStr.Length; i++)
+                if (lineStr.Substring(i, 1) != "." && !int.TryParse(lineStr.Substring(i, 1), out int blah))
                 {
-                    if (lineStr.Substring(i, 1) != "." && !int.TryParse(lineStr.Substring(i, 1), out int blah))
+                    if (x > 0)
                     {
-                        if (x > 0)
+                        // check above
+                        var lineAbove = stringArr[x - 1];
+                        string lineStrAbove = (lineAbove.FirstOrDefault() ?? "");
+                        if (int.TryParse(lineStrAbove.Substring(i, 1), out int blah2))
                         {
-                            // check above
-                            var lineAbove = stringArr[x - 1];
-                            string lineStrAbove = (lineAbove.FirstOrDefault() ?? "");
-                            if (int.TryParse(lineStrAbove.Substring(i, 1), out int blah2))
+                            int startIndex = 0;
+                            int endIndex = lineStr.Length - 1;
+                            if (i > 0)
                             {
-                                int startIndex = 0;
-                                int endIndex = lineStr.Length - 1;
-                                if (i > 0)
-                                {
-                                    // find start index
-                                    startIndex = lineStrAbove.IndexOf('.', i);
-                                }
-                                if (i < lineStr.Length - 1)
-                                {
-                                    // find end index
-                                    endIndex = lineStrAbove.LastIndexOf(".", i);
-                                }
-
-                                if (int.TryParse(lineStrAbove.Substring(endIndex + 1, startIndex - endIndex - 1), out int aboveAns))
-                                {
-                                    ans += aboveAns;
-                                }
+                                // find start index
+                                startIndex = lineStrAbove.IndexOf('.', i);
                             }
-                            else
+                            if (i < lineStr.Length - 1)
                             {
-                                // if not number above, check left and right diagonals, if index is appropriate
-
-                                // top left
-                                if (i > 0)
-                                {
-                                    if (int.TryParse(lineStrAbove.Substring(i - 1, 1), out int blah3))
-                                    {
-                                        // we know i is a period
-                                        var startIndex = lineStrAbove.LastIndexOf(".", i - 1);
-                                        startIndex += 1;
-
-                                        if (int.TryParse(lineStrAbove.Substring(startIndex, i - startIndex), out int topLeftDiag))
-                                        {
-                                            ans += topLeftDiag;
-                                        }
-                                    }
-                                }
-                                // top right
-                                if (i < lineStr.Length - 1)
-                                {
-                                    if (int.TryParse(lineStrAbove.Substring(i + 1, 1), out int blah3))
-                                    {
-                                        // we know i is a period
-                                        var endIndex = lineStrAbove.IndexOf(".", i + 1);
-                                        if (endIndex < 0) endIndex = lineStrAbove.Length;
-
-                                        if (int.TryParse(lineStrAbove.Substring(i + 1, endIndex - i - 1), out int topRightDiag))
-                                        {
-                                            ans += topRightDiag;
-                                        }
-                                    }
-                                }
+                                // find end index
+                                endIndex = lineStrAbove.LastIndexOf(".", i);
                             }
 
+                            if (int.TryParse(lineStrAbove.Substring(endIndex + 1, startIndex - endIndex - 1), out int aboveAns))
+                            {
+                                ans += aboveAns;
+                            }
                         }
-                        if (x < stringArr.Count - 1)
+                        else
                         {
-                            // check below
-                            var lineAbove = stringArr[x + 1];
-                            string lineStrBelow = (lineAbove.FirstOrDefault() ?? "");
-                            if (int.TryParse(lineStrBelow.Substring(i, 1), out int blah2))
-                            {
-                                int startIndex = 0;
-                                int endIndex = lineStr.Length - 1;
-                                if (i > 0)
-                                {
-                                    // find start index
-                                    startIndex = lineStrBelow.IndexOf('.', i);
-                                }
-                                if (i < lineStr.Length - 1)
-                                {
-                                    // find end index
-                                    endIndex = lineStrBelow.LastIndexOf(".", i);
-                                }
+                            // if not number above, check left and right diagonals, if index is appropriate
 
-                                if (int.TryParse(lineStrBelow.Substring(endIndex + 1, startIndex - endIndex - 1), out int aboveAns))
-                                {
-                                    ans += aboveAns;
-                                }
-                            }
-                            else
+                            // top left
+                            if (i > 0)
                             {
-                                // if not number below, check left and right diagonals, if index is appropriate
-
-                                // bottom left
-                                if (i > 0)
+                                if (int.TryParse(lineStrAbove.Substring(i - 1, 1), out int blah3))
                                 {
-                                    if (int.TryParse(lineStrBelow.Substring(i - 1, 1), out int blah3))
+                                    // we know i is a period
+                                    var startIndex = lineStrAbove.LastIndexOf(".", i - 1);
+                                    startIndex += 1;
+
+                                    if (int.TryParse(lineStrAbove.Substring(startIndex, i - startIndex), out int topLeftDiag))
                                     {
-                                        // we know i is a period
-                                        var startIndex = lineStrBelow.LastIndexOf(".", i - 1);
-                                        startIndex += 1;
-
-                                        if (int.TryParse(lineStrBelow.Substring(startIndex, i - startIndex), out int bottomLeftDiag))
-                                        {
-                                            ans += bottomLeftDiag;
-                                        }
+                                        ans += topLeftDiag;
                                     }
                                 }
-                                // bottom right
-                                if (i < lineStr.Length - 1)
+                            }
+                            // top right
+                            if (i < lineStr.Length - 1)
+                            {
+                                if (int.TryParse(lineStrAbove.Substring(i + 1, 1), out int blah3))
                                 {
-                                    if (int.TryParse(lineStrBelow.Substring(i + 1, 1), out int blah3))
-                                    {
-                                        // we know i is a period
-                                        var endIndex = lineStrBelow.IndexOf(".", i + 1);
-                                        if (endIndex < 0) endIndex = lineStrBelow.Length;
+                                    // we know i is a period
+                                    var endIndex = lineStrAbove.IndexOf(".", i + 1);
+                                    if (endIndex < 0) endIndex = lineStrAbove.Length;
 
-                                        if (int.TryParse(lineStrBelow.Substring(i + 1, endIndex - i - 1), out int bottomRightDiag))
-                                        {
-                                            ans += bottomRightDiag;
-                                        }
+                                    if (int.TryParse(lineStrAbove.Substring(i + 1, endIndex - i - 1), out int topRightDiag))
+                                    {
+                                        ans += topRightDiag;
                                     }
                                 }
                             }
                         }
-                        if (i > 0)
+
+                    }
+                    if (x < stringArr.Count - 1)
+                    {
+                        // check below
+                        var lineAbove = stringArr[x + 1];
+                        string lineStrBelow = (lineAbove.FirstOrDefault() ?? "");
+                        if (int.TryParse(lineStrBelow.Substring(i, 1), out int blah2))
                         {
-                            // check left
-                            var lastPeriodIndex = lineStr.LastIndexOf('.', i - 1);
-                            if (lastPeriodIndex < i - 1)
+                            int startIndex = 0;
+                            int endIndex = lineStr.Length - 1;
+                            if (i > 0)
                             {
-                                if (int.TryParse(lineStr.Substring(lastPeriodIndex + 1, i - lastPeriodIndex - 1), out int leftAns))
+                                // find start index
+                                startIndex = lineStrBelow.IndexOf('.', i);
+                            }
+                            if (i < lineStr.Length - 1)
+                            {
+                                // find end index
+                                endIndex = lineStrBelow.LastIndexOf(".", i);
+                            }
+
+                            if (int.TryParse(lineStrBelow.Substring(endIndex + 1, startIndex - endIndex - 1), out int aboveAns))
+                            {
+                                ans += aboveAns;
+                            }
+                        }
+                        else
+                        {
+                            // if not number below, check left and right diagonals, if index is appropriate
+
+                            // bottom left
+                            if (i > 0)
+                            {
+                                if (int.TryParse(lineStrBelow.Substring(i - 1, 1), out int blah3))
                                 {
-                                    ans += leftAns;
+                                    // we know i is a period
+                                    var startIndex = lineStrBelow.LastIndexOf(".", i - 1);
+                                    startIndex += 1;
+
+                                    if (int.TryParse(lineStrBelow.Substring(startIndex, i - startIndex), out int bottomLeftDiag))
+                                    {
+                                        ans += bottomLeftDiag;
+                                    }
+                                }
+                            }
+                            // bottom right
+                            if (i < lineStr.Length - 1)
+                            {
+                                if (int.TryParse(lineStrBelow.Substring(i + 1, 1), out int blah3))
+                                {
+                                    // we know i is a period
+                                    var endIndex = lineStrBelow.IndexOf(".", i + 1);
+                                    if (endIndex < 0) endIndex = lineStrBelow.Length;
+
+                                    if (int.TryParse(lineStrBelow.Substring(i + 1, endIndex - i - 1), out int bottomRightDiag))
+                                    {
+                                        ans += bottomRightDiag;
+                                    }
                                 }
                             }
                         }
-                        if (i < lineStr.Length - 1)
+                    }
+                    if (i > 0)
+                    {
+                        // check left
+                        var lastPeriodIndex = lineStr.LastIndexOf('.', i - 1);
+                        if (lastPeriodIndex < i - 1)
                         {
-                            // check right
-                            var nextPeriodIndex = lineStr.IndexOf('.', i + 1);
-                            if (nextPeriodIndex < 0) nextPeriodIndex = lineStr.Length;
-                            if (nextPeriodIndex > i + 1)
+                            if (int.TryParse(lineStr.Substring(lastPeriodIndex + 1, i - lastPeriodIndex - 1), out int leftAns))
                             {
-                                if (int.TryParse(lineStr.Substring(i + 1, nextPeriodIndex - i - 1), out int rightAns))
-                                {
-                                    ans += rightAns;
-                                }
+                                ans += leftAns;
+                            }
+                        }
+                    }
+                    if (i < lineStr.Length - 1)
+                    {
+                        // check right
+                        var nextPeriodIndex = lineStr.IndexOf('.', i + 1);
+                        if (nextPeriodIndex < 0) nextPeriodIndex = lineStr.Length;
+                        if (nextPeriodIndex > i + 1)
+                        {
+                            if (int.TryParse(lineStr.Substring(i + 1, nextPeriodIndex - i - 1), out int rightAns))
+                            {
+                                ans += rightAns;
                             }
                         }
                     }
                 }
             }
-            return ans.ToString();
         }
+        return ans.ToString();
     }
 }
