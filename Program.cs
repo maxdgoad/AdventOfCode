@@ -9,7 +9,7 @@ Stopwatch stopwatch = new Stopwatch();
 
 stopwatch.Start();
 
-var output = Advent6x2.Run();
+var output = Advent6x2Golf.Run();
 
 Console.WriteLine($"Answer: {output}");
 

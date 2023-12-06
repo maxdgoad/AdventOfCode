@@ -22,7 +22,7 @@ namespace AdventOfCode.Utils
                 //Continue to read until you reach end of file
                 while (line != null)
                 {
-                    response.Add(line.Split(splitter).ToList());
+                    response.Add(line.Split(splitter).Where(str => !string.IsNullOrEmpty(str)).Select(str => str.Trim()).ToList());
                     line = sr.ReadLine();
                 }
                 //close the file
