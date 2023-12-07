@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode.Euler;
+﻿using AdventOfCode.Utils;
+
+namespace AdventOfCode.Euler;
 internal static class Euler5
 {
     public static string Run()
