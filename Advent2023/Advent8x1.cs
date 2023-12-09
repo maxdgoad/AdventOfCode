@@ -10,7 +10,6 @@ internal class Advent8x1
         long ans = 0;
 
         var path = new Dictionary<string, (string, string)>();
-
         var instructions = stringArr[0][0];
 
         for (int rep = 2; rep < stringArr.Count; rep++)
@@ -23,11 +22,8 @@ internal class Advent8x1
         }
 
         int count = 0;
-
         bool foundZZZ = false;
-
         string currentNode = "AAA";
-
         while (!foundZZZ)
         {
             char instr = instructions[count % instructions.Length];
