@@ -19,7 +19,6 @@ internal class Advent9x2
 
         long ans = 0;
 
-
         foreach (var sequence in stringArr)
         {
             var longSequence = sequence.Select(val => long.Parse(val)).ToList();

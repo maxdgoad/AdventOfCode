@@ -3,7 +3,6 @@
 namespace AdventOfCode.Advent2023;
 internal class Advent9x1
 {
-
     public static List<long> FindDiffs(List<long> vals)
     {
         List<long> diffs = new List<long>();
@@ -20,7 +19,6 @@ internal class Advent9x1
 
         long ans = 0;
 
-        
         foreach (var sequence in stringArr)
         {
             var longSequence = sequence.Select(val => long.Parse(val)).ToList();
