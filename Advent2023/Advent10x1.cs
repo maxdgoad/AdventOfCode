@@ -45,7 +45,7 @@ internal class Advent10x1
                 distanceArr[row - rowSub, col] = distanceArr[row, col] + 1;
                 row--;
             }
-            else if (col + colAdd < distanceArr.GetLength(0) && !distanceArr[row, col + colAdd].HasValue)
+            else if (col + colAdd < distanceArr.GetLength(1) && !distanceArr[row, col + colAdd].HasValue)
             {
                 distanceArr[row, col + colAdd] = distanceArr[row, col] + 1;
                 col++;
@@ -68,7 +68,7 @@ internal class Advent10x1
         
         // find s
         (int, int) sLoc = (0, 0);
-        distanceArr = new int?[charArr.Count, charArr.Count];
+        distanceArr = new int?[charArr.Count, charArr[0].Count];
         for (int i = 0; i < charArr.Count; i++)
         {
             for (int j = 0; j < charArr[i].Count; j++)
