@@ -1,7 +1,7 @@
 ﻿namespace AdventOfCode.Utils;
 internal static class FileReader
 {
-    static string MaxPath = "C:\\Users\\Max\\Desktop\\AdventOfCode\\TextFiles\\";
+    static string MaxPath = "C:\\Users\\maxdg\\OneDrive\\Desktop\\AdventOfCode\\TextFiles2024\\";
     public static List<List<string>> ReadFile(string fileName, string splitter = "")
     {
         var response = new List<List<string>>();
