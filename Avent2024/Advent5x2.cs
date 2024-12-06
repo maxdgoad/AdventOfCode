@@ -60,20 +60,20 @@ internal class Advent5x2
                                 }
                             }
                         }
-                        if (rule.Item1 == update[i])
-                        {
-                            // find where item2 is in the update
-                            for (int j = i - 1; j > 0; j--)
-                            {
-                                if (update[j] == rule.Item2)
-                                {
-                                    // swap the two numbers
-                                    var temp = update[i];
-                                    update[i] = update[j];
-                                    update[j] = temp;
-                                }
-                            }
-                        }
+                        //if (rule.Item1 == update[i])
+                        //{
+                        //    // find where item2 is in the update
+                        //    for (int j = i - 1; j > 0; j--)
+                        //    {
+                        //        if (update[j] == rule.Item2)
+                        //        {
+                        //            // swap the two numbers
+                        //            var temp = update[i];
+                        //            update[i] = update[j];
+                        //            update[j] = temp;
+                        //        }
+                        //    }
+                        //}
                     }
                 }
                 rulesBroken = RulesBroken(update, rules);
