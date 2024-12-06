@@ -13,13 +13,12 @@ internal class Advent6x2
         var caratY = stringArr.FindIndex((str) => str.Contains("^"));
         var caratX = stringArr[caratY].IndexOf("^");
 
-        // traverse until the carat can't turn right
         var up = (0, -1);
         var right = (1, 0);
         var down = (0, 1);
         var left = (-1, 0);
-        var direction = up; // (1,0) = up, (0,1) = right, (-1,0) = down, (0,-1) = left
 
+        var direction = up;
 
         var startingY = caratY;
         var startingX = caratX;
@@ -38,14 +37,14 @@ internal class Advent6x2
                     stringArr[i] = stringArr[i].Remove(j, 1).Insert(j, "#");
 
                     var leaves = false;
-                    var visitedLocations = new List<(int, int, (int, int))>();
+                    var visitedLocations = new Dictionary<(int, int, (int, int)), bool>();
                     var stuck = false;
 
                     while (!leaves)
                     {
-                        if (!visitedLocations.Contains((caratX, caratY, direction)))
+                        if (!visitedLocations.TryGetValue((caratX, caratY, direction), out bool b))
                         {
-                            visitedLocations.Add((caratX, caratY, direction));
+                            visitedLocations.Add((caratX, caratY, direction), true);
                         }
                         else
                         {
