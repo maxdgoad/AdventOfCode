@@ -5,4 +5,4 @@ Console.WriteLine("Starting program:");
 Stopwatch stopwatch = new Stopwatch(); stopwatch.Start();
 var output = Advent7x2.Run();
 Console.WriteLine($"Answer: {output}");
-Console.WriteLine($"Program ran in {stopwatch.Elapsed.TotalSeconds} seconds");
+Console.WriteLine($"Ran in {stopwatch.Elapsed.TotalSeconds} seconds");
