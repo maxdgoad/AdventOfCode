@@ -95,9 +95,7 @@ internal class Advent6x2
                     stringArr[i] = stringArr[i].Remove(j, 1).Insert(j, ".");
                 }
             }
-        }
-
-        
+        }  
 
         return ans.ToString();
     }

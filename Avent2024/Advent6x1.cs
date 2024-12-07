@@ -13,19 +13,17 @@ internal class Advent6x1
         var caratY = stringArr.FindIndex((str) => str.Contains("^"));
         var caratX = stringArr[caratY].IndexOf("^");
 
-        // traverse until the carat can't turn right
         var up = (0, -1);
         var right = (1, 0);
         var down = (0, 1);
         var left = (-1, 0);
-        var direction = up; // (1,0) = up, (0,1) = right, (-1,0) = down, (0,-1) = left
+        var direction = up; 
 
         var leaves = false;
 
         var visitedLocations = new List<(int, int)>();
         while (!leaves)
         {
-            
             var nextY = caratY + direction.Item2;
             var nextX = caratX + direction.Item1;
 
@@ -35,35 +33,6 @@ internal class Advent6x1
             }
             else if (stringArr[nextY][nextX] == '#')
             {
-                //try
-                //{
-                //    // check if the carat can move 90 degrees to the right
-                //    if (direction == up && stringArr[caratY][caratX + 1] == '#')
-                //    {
-                //        leaves = true;
-                //        break;
-                //    }
-                //    else if (direction == right && stringArr[caratY + 1][caratX] == '#')
-                //    {
-                //        leaves = true;
-                //        break;
-                //    }
-                //    else if (direction == down && stringArr[caratY][caratX - 1] == '#')
-                //    {
-                //        leaves = true;
-                //        break;
-                //    }
-                //    else if (direction == left && stringArr[caratY - 1][caratX] == '#')
-                //    {
-                //        leaves = true;
-                //        break;
-                //    }
-                //}
-                //catch (Exception ex)
-                //{
-
-                //}
-
                 // turn
                 if (direction == up)
                 {
@@ -91,9 +60,7 @@ internal class Advent6x1
                 }
                 caratY = nextY;
                 caratX = nextX;
-                
-            }
-            
+            }         
         }
 
         return ans.ToString();
