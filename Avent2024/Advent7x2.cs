@@ -30,17 +30,14 @@ internal class Advent7x2
 
     public static bool CanMakeGoal(BigInteger goal, List<int> vals, BigInteger runningTotal)
     {
-        if (vals.Count == 0)
-        {
-            return runningTotal == goal;
-        }
         if (vals.Count == 1)
         {
             return runningTotal + vals[0] == goal || runningTotal * vals[0] == goal || BigInteger.Parse(runningTotal.ToString() + vals[0].ToString()) == goal;
         }
 
         var concatVal = BigInteger.Parse(runningTotal.ToString() + vals[0].ToString());
-        return CanMakeGoal(goal, vals[1..], runningTotal + vals[0]) || CanMakeGoal(goal, vals[1..], (runningTotal == 0 ? 1 : runningTotal) * vals[0])
+        return CanMakeGoal(goal, vals[1..], runningTotal + vals[0]) 
+            || CanMakeGoal(goal, vals[1..], (runningTotal == 0 ? 1 : runningTotal) * vals[0])
             || CanMakeGoal(goal, vals[1..], concatVal);
     }
 }

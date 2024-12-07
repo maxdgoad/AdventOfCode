@@ -23,10 +23,8 @@ internal class Advent7x1
             {
                 ans += goal;
             }
-
         }
 
-        
         return ans.ToString();
     }
 
@@ -37,6 +35,7 @@ internal class Advent7x1
             return runningTotal + vals[0] == goal || runningTotal * vals[0] == goal;
         }
 
-        return CanMakeGoal(goal, vals[1..], runningTotal + vals[0]) || CanMakeGoal(goal, vals[1..], runningTotal * vals[0]);
+        return CanMakeGoal(goal, vals[1..], runningTotal + vals[0]) 
+            || CanMakeGoal(goal, vals[1..], (runningTotal == 0 ? 1 : runningTotal) * vals[0]);
     }
 }
