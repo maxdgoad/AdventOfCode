@@ -64,45 +64,45 @@ internal class Advent10x1
 
     public static string Run()
     {
-        charArr = FileReader.ReadFileCharArray("Advent10Example2.txt", " ");
+        //charArr = FileReader.ReadFileCharArray("Advent10Example2.txt", " ");
         
-        // find s
-        (int, int) sLoc = (0, 0);
-        distanceArr = new int?[charArr.Count, charArr[0].Count];
-        for (int i = 0; i < charArr.Count; i++)
-        {
-            for (int j = 0; j < charArr[i].Count; j++)
-            {
-                if (charArr[i][j] == 'S')
-                {
-                    sLoc = (i, j);
-                    distanceArr[i, j] = 0;
-                }
-                else
-                {
-                    distanceArr[i, j] = null;
-                }
-            }
-        }
+        //// find s
+        //(int, int) sLoc = (0, 0);
+        //distanceArr = new int?[charArr.Count, charArr[0].Count];
+        //for (int i = 0; i < charArr.Count; i++)
+        //{
+        //    for (int j = 0; j < charArr[i].Count; j++)
+        //    {
+        //        if (charArr[i][j] == 'S')
+        //        {
+        //            sLoc = (i, j);
+        //            distanceArr[i, j] = 0;
+        //        }
+        //        else
+        //        {
+        //            distanceArr[i, j] = null;
+        //        }
+        //    }
+        //}
 
-        // traverse
-        Simulate(sLoc.Item1, sLoc.Item2);
+        //// traverse
+        //Simulate(sLoc.Item1, sLoc.Item2);
 
-        for (int i = 0; i < distanceArr.GetLength(0); i++)
-        {
-            for (int j = 0; j < distanceArr.GetLength(1); j++)
-            {
-                if (!distanceArr[i, j].HasValue)
-                {
-                    Console.Write("." + " ");
-                }
-                else
-                {
-                    Console.Write(distanceArr[i, j] + " ");
-                }               
-            }
-            Console.WriteLine();
-        }
+        //for (int i = 0; i < distanceArr.GetLength(0); i++)
+        //{
+        //    for (int j = 0; j < distanceArr.GetLength(1); j++)
+        //    {
+        //        if (!distanceArr[i, j].HasValue)
+        //        {
+        //            Console.Write("." + " ");
+        //        }
+        //        else
+        //        {
+        //            Console.Write(distanceArr[i, j] + " ");
+        //        }               
+        //    }
+        //    Console.WriteLine();
+        //}
 
         long ans = 0;
         return ans.ToString();

@@ -30,9 +30,9 @@ internal static class FileReader
         return response;
     }
 
-    public static List<List<char>> ReadFileCharArray(string fileName, string splitter = "")
+    public static char[][] ReadFileCharArray(string fileName, string splitter = "")
     {
-        var response = new List<List<char>>();
+        var response = new List<char[]>();
         var currentDirectory = Directory.GetCurrentDirectory();
         string? line;
         try
@@ -44,7 +44,7 @@ internal static class FileReader
             // Continue to read until you reach end of file
             while (line != null)
             {
-                response.Add(line.ToCharArray().ToList());
+                response.Add(line.ToCharArray());
                 line = sr.ReadLine();
             }
             // Close the file
@@ -55,6 +55,6 @@ internal static class FileReader
             Console.WriteLine("Exception: " + e.Message);
         }
 
-        return response;
+        return response.ToArray();
     }
 }

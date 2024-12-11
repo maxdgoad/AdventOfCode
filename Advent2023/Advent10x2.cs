@@ -65,139 +65,139 @@ internal class Advent10x2
     public static string Run()
     {
         long ans = 0;
-        charArr = FileReader.ReadFileCharArray("Advent10.txt", " ");
+        //charArr = FileReader.ReadFileCharArray("Advent10.txt", " ");
 
-        // find s
-        (int, int) sLoc = (0, 0);
-        mainLoop = new bool?[charArr.Count, charArr[0].Count];
-        for (int i = 0; i < charArr.Count; i++)
-        {
-            for (int j = 0; j < charArr[i].Count; j++)
-            {
-                if (charArr[i][j] == 'S')
-                {
-                    sLoc = (i, j);
-                    mainLoop[i, j] = true;
-                }
-                else if (charArr[i][j] == '.')
-                {
-                    mainLoop[i, j] = false;
-                }
-                else
-                {
-                    mainLoop[i, j] = null;
-                }
-            }
-        }
+        //// find s
+        //(int, int) sLoc = (0, 0);
+        //mainLoop = new bool?[charArr.Count, charArr[0].Count];
+        //for (int i = 0; i < charArr.Count; i++)
+        //{
+        //    for (int j = 0; j < charArr[i].Count; j++)
+        //    {
+        //        if (charArr[i][j] == 'S')
+        //        {
+        //            sLoc = (i, j);
+        //            mainLoop[i, j] = true;
+        //        }
+        //        else if (charArr[i][j] == '.')
+        //        {
+        //            mainLoop[i, j] = false;
+        //        }
+        //        else
+        //        {
+        //            mainLoop[i, j] = null;
+        //        }
+        //    }
+        //}
 
-        // traverse
-        Simulate(sLoc.Item1, sLoc.Item2);
+        //// traverse
+        //Simulate(sLoc.Item1, sLoc.Item2);
 
-        sixArr = new char?[charArr.Count * 3, charArr[0].Count * 3];
+        //sixArr = new char?[charArr.Count * 3, charArr[0].Count * 3];
 
-        escapeArr = new bool[charArr.Count * 3, charArr[0].Count * 3];
-        trappedArr = new bool[charArr.Count * 3, charArr[0].Count * 3];
+        //escapeArr = new bool[charArr.Count * 3, charArr[0].Count * 3];
+        //trappedArr = new bool[charArr.Count * 3, charArr[0].Count * 3];
 
-        for (int i = 0; i < mainLoop.GetLength(0); i++)
-        {
-            for (int j = 0; j < mainLoop.GetLength(1); j++)
-            {
-                char pipeType = charArr[i][j];
+        //for (int i = 0; i < mainLoop.GetLength(0); i++)
+        //{
+        //    for (int j = 0; j < mainLoop.GetLength(1); j++)
+        //    {
+        //        char pipeType = charArr[i][j];
 
-                int rowAdd = 0;
-                int rowSub = 0;
-                int colAdd = 0;
-                int colSub = 0;
-                switch (pipeType)
-                {
-                    case '|':
-                        rowAdd = 1; rowSub = 1; break;
-                    case '-':
-                        colAdd = 1; colSub = 1; break;
-                    case '7':
-                        rowAdd = 1; colSub = 1; break;
-                    case 'F':
-                        rowAdd = 1; colAdd = 1; break;
-                    case 'J':
-                        rowSub = 1; colSub = 1; break;
-                    case 'L':
-                        rowSub = 1; colAdd = 1; break;
-                    case 'S':
-                        rowAdd = 1; colAdd = 1; break;
-                }
+        //        int rowAdd = 0;
+        //        int rowSub = 0;
+        //        int colAdd = 0;
+        //        int colSub = 0;
+        //        switch (pipeType)
+        //        {
+        //            case '|':
+        //                rowAdd = 1; rowSub = 1; break;
+        //            case '-':
+        //                colAdd = 1; colSub = 1; break;
+        //            case '7':
+        //                rowAdd = 1; colSub = 1; break;
+        //            case 'F':
+        //                rowAdd = 1; colAdd = 1; break;
+        //            case 'J':
+        //                rowSub = 1; colSub = 1; break;
+        //            case 'L':
+        //                rowSub = 1; colAdd = 1; break;
+        //            case 'S':
+        //                rowAdd = 1; colAdd = 1; break;
+        //        }
 
-                sixArr[3 * i, 3 * j] = 'x';
-                sixArr[3 * i, 3 * j + 1] = rowSub == 1 ? '|' : 'x';             
-                sixArr[3 * i, 3 * j + 2] = 'x';
+        //        sixArr[3 * i, 3 * j] = 'x';
+        //        sixArr[3 * i, 3 * j + 1] = rowSub == 1 ? '|' : 'x';             
+        //        sixArr[3 * i, 3 * j + 2] = 'x';
 
-                sixArr[3 * i + 1, 3 * j] = colSub == 1 ? '-' : 'x';     
-                sixArr[3 * i + 1, 3 * j + 1] = pipeType;    
-                sixArr[3 * i + 1, 3 * j + 2] = colAdd == 1 ? '-' : 'x';
+        //        sixArr[3 * i + 1, 3 * j] = colSub == 1 ? '-' : 'x';     
+        //        sixArr[3 * i + 1, 3 * j + 1] = pipeType;    
+        //        sixArr[3 * i + 1, 3 * j + 2] = colAdd == 1 ? '-' : 'x';
 
-                sixArr[3 * i + 2, 3 * j] = 'x';     
-                sixArr[3 * i + 2, 3 * j + 1] = rowAdd == 1 ? '|' : 'x';         
-                sixArr[3 * i + 2, 3 * j + 2] = 'x';
+        //        sixArr[3 * i + 2, 3 * j] = 'x';     
+        //        sixArr[3 * i + 2, 3 * j + 1] = rowAdd == 1 ? '|' : 'x';         
+        //        sixArr[3 * i + 2, 3 * j + 2] = 'x';
 
-            }
-        }
+        //    }
+        //}
 
-        for (int i = 0; i < sixArr.GetLength(0); i++)
-        {
-            for (int j = 0; j < sixArr.GetLength(1); j++)
-            {
-                bool? mainLoopVal = mainLoop[i/3, j/3];
-                if (mainLoopVal ?? false)
-                {
-                    Console.BackgroundColor = sixArr[i, j] == 'x' ? ConsoleColor.Black : ConsoleColor.Green;
-                    Console.Write(sixArr[i,j]);
-                    Console.BackgroundColor = ConsoleColor.Black;
+        //for (int i = 0; i < sixArr.GetLength(0); i++)
+        //{
+        //    for (int j = 0; j < sixArr.GetLength(1); j++)
+        //    {
+        //        bool? mainLoopVal = mainLoop[i/3, j/3];
+        //        if (mainLoopVal ?? false)
+        //        {
+        //            Console.BackgroundColor = sixArr[i, j] == 'x' ? ConsoleColor.Black : ConsoleColor.Green;
+        //            Console.Write(sixArr[i,j]);
+        //            Console.BackgroundColor = ConsoleColor.Black;
 
-                }
-                else
-                {
-                    //Console.BackgroundColor = sixArr[i, j] != 'x' ? ConsoleColor.Blue : ConsoleColor.Black;
+        //        }
+        //        else
+        //        {
+        //            //Console.BackgroundColor = sixArr[i, j] != 'x' ? ConsoleColor.Blue : ConsoleColor.Black;
 
-                    if ((i - 1) % 3 == 0 && (j - 1) % 3 == 0)
-                    {
-                        // Method to find out if it can reach the edge through X's
-                        var seen = new bool[sixArr.GetLength(0), sixArr.GetLength(1)];
-                        // 224, 210
-                        var canEscape = CanEscape(i, j, seen, 0);
+        //            if ((i - 1) % 3 == 0 && (j - 1) % 3 == 0)
+        //            {
+        //                // Method to find out if it can reach the edge through X's
+        //                var seen = new bool[sixArr.GetLength(0), sixArr.GetLength(1)];
+        //                // 224, 210
+        //                var canEscape = CanEscape(i, j, seen, 0);
 
-                        if (canEscape)
-                        {
-                            // update escapeArr with seen
-                            for (int x = 0; x < seen.GetLength(0); x++)
-                            {
-                                for (int y = 0; y < seen.GetLength(1); y++)
-                                {
-                                    escapeArr[x, y] = seen[x, y];
-                                }
-                            }
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                        }
-                        else
-                        {
-                            // update trappedArr with seen
-                            for (int x = 0; x < seen.GetLength(0); x++)
-                            {
-                                for (int y = 0; y < seen.GetLength(1); y++)
-                                {
-                                    trappedArr[x, y] = seen[x, y];
-                                }
-                            }
-                            Console.BackgroundColor = ConsoleColor.Red;
-                            ans += 1;
-                        }
-                    }
+        //                if (canEscape)
+        //                {
+        //                    // update escapeArr with seen
+        //                    for (int x = 0; x < seen.GetLength(0); x++)
+        //                    {
+        //                        for (int y = 0; y < seen.GetLength(1); y++)
+        //                        {
+        //                            escapeArr[x, y] = seen[x, y];
+        //                        }
+        //                    }
+        //                    Console.BackgroundColor = ConsoleColor.Blue;
+        //                }
+        //                else
+        //                {
+        //                    // update trappedArr with seen
+        //                    for (int x = 0; x < seen.GetLength(0); x++)
+        //                    {
+        //                        for (int y = 0; y < seen.GetLength(1); y++)
+        //                        {
+        //                            trappedArr[x, y] = seen[x, y];
+        //                        }
+        //                    }
+        //                    Console.BackgroundColor = ConsoleColor.Red;
+        //                    ans += 1;
+        //                }
+        //            }
 
-                    Console.Write(sixArr[i, j]);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                }
-            }
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.WriteLine();
-        }
+        //            Console.Write(sixArr[i, j]);
+        //            Console.BackgroundColor = ConsoleColor.Black;
+        //        }
+        //    }
+        //    Console.BackgroundColor = ConsoleColor.Black;
+        //    Console.WriteLine();
+        //}
         return ans.ToString();
     }
     
