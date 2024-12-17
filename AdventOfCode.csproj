@@ -140,6 +140,15 @@
     <None Update="TextFiles2024\Advent15Example2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TextFiles2024\Advent16.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TextFiles2024\Advent16Example1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TextFiles2024\Advent16Example2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TextFiles2024\Advent2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
