@@ -3,6 +3,6 @@ using System.Diagnostics;
 
 Console.WriteLine("Starting program:");
 Stopwatch stopwatch = new Stopwatch(); stopwatch.Start();
-var output = Advent19x2.Run();
+var output = Advent20x2.Run();
 Console.WriteLine($"Answer: {output}");
 Console.WriteLine($"Ran in {stopwatch.Elapsed.TotalSeconds} seconds");
