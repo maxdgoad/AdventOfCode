@@ -1,5 +1,6 @@
 ﻿using AdventOfCode.Utils;
 using System.Numerics;
+using System.Xml.Linq;
 
 namespace AdventOfCode.Advent2024
 {
@@ -146,7 +147,7 @@ namespace AdventOfCode.Advent2024
 
         public static string Run()
         {
-            var stringArr = FileReader.ReadFile("Advent21Example.txt").Select((str) => str[0]).ToList();
+            var stringArr = FileReader.ReadFile("Advent21.txt").Select((str) => str[0]).ToList();
 
             BigInteger ans = 0;
 
@@ -157,155 +158,232 @@ namespace AdventOfCode.Advent2024
                 var controller2 = new Controller();
                 var keypad1 = new Keypad();
 
-                var layer1 = "";
-                var layer2 = "";
-                var layer3 = "";
+                var minLayer1 = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+                var minLayer2 = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+                var minLayer3 = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
-                for (int i = 0; i < code.Length; i++)
+
+              
+
+                var rand = new Random(1290);
+
+                for (int k = 0; k < 3000; k++)
                 {
-                    var diff = keypad1.DiffBetweenCursorAndChar(code[i]);
-
-                    var xMovesLeft = Math.Abs(diff.Item1);
-                    var yMovesLeft = Math.Abs(diff.Item2);
-
-                    while (xMovesLeft > 0 || yMovesLeft > 0)
+                    var layer1 = "";
+                    for (int i = 0; i < code.Length; i++)
                     {
-                        
-                        if (diff.Item1 < 0)
-                        {
-                            if (keypad1.Controller[keypad1.Cursor.Item2][keypad1.Cursor.Item1 - 1] != 'X')
-                            {
-                                layer1 += "<";
-                                xMovesLeft--;
-                            }
-                        }
-                        else
-                        {
-                            if (keypad1.Controller[keypad1.Cursor.Item2][keypad1.Cursor.Item1 + 1] != 'X')
-                            {
-                                layer1 += ">";
-                                xMovesLeft--;
-                            }
-                        }
-                        
-                        if (diff.Item2 < 0)
-                        {
-                            if (keypad1.Controller[keypad1.Cursor.Item2 - 1][keypad1.Cursor.Item1] != 'X')
-                            {
-                                layer1 += "^";
-                            }
-                            yMovesLeft--;
+                        var bogus = false;
+                        var diff = keypad1.DiffBetweenCursorAndChar(code[i]);
 
+                        var xMovesLeft = Math.Abs(diff.Item1);
+                        var yMovesLeft = Math.Abs(diff.Item2);
+
+                        var xMove = diff.Item1 > 0 ? '>' : '<';
+                        var yMove = diff.Item2 > 0 ? 'v' : '^';
+
+                        var initCursor = keypad1.Cursor;
+
+                        var templayer1 = "";
+                        // randomize the order of the moves
+                        var order = new List<char>();
+
+                        for (int j = 0; j < xMovesLeft; j++)
+                        {
+                            order.Add(xMove);
+                        }
+                        for (int j = 0; j < yMovesLeft; j++)
+                        {
+                            order.Add(yMove);
+                        }
+                        order = order.OrderBy(_ => rand.Next()).ToList();
+
+                        templayer1 += order.Aggregate("", (agg, dir) => agg += dir);
+
+                        foreach (var c in templayer1)
+                        {
+                            var tempDiff = (0, 0);
+                            switch (c)
+                            {
+                                case '^':
+                                    tempDiff = (0, -1);
+                                    break;
+                                case 'v':
+                                    tempDiff = (0, 1);
+                                    break;
+                                case '<':
+                                    tempDiff = (-1, 0);
+                                    break;
+                                case '>':
+                                    tempDiff = (1, 0);
+                                    break;
+                            }
+
+                            keypad1.Cursor = (keypad1.Cursor.Item1 + tempDiff.Item1, keypad1.Cursor.Item2 + tempDiff.Item2);
+                            if (keypad1.Controller[keypad1.Cursor.Item2][keypad1.Cursor.Item1] == 'X')
+                            {
+                                bogus = true;
+                            }
+                        }
+
+                        if (!bogus)
+                        {
+                            layer1 += templayer1;
+                            layer1 += "A";
                         }
                         else
                         {
-                            if (keypad1.Controller[keypad1.Cursor.Item2 + 1][keypad1.Cursor.Item1] != 'X')
-                            {
-                                layer1 += "v";
-                            }
-                            yMovesLeft--;
+                            i--;
+                            keypad1.Cursor = initCursor;
                         }
                     }
 
-                    layer1 += "A";
-                    keypad1.Cursor = (keypad1.Cursor.Item1 + diff.Item1, keypad1.Cursor.Item2 + diff.Item2);
-                }
-
-                for (int i = 0; i < layer1.Length; i++)
-                {
-                    var diff = controller2.DiffBetweenCursorAndChar(layer1[i]);
-                    var xMovesLeft = Math.Abs(diff.Item1);
-                    var yMovesLeft = Math.Abs(diff.Item2);
-
-                    while (xMovesLeft > 0 || yMovesLeft > 0)
+                    var layer2 = "";
+                    for (int i = 0; i < layer1.Length; i++)
                     {
-                        if (diff.Item1 < 0)
+                        var bogus = false;
+                        var tempLayer2 = "";
+                        var diff = controller2.DiffBetweenCursorAndChar(layer1[i]);
+                        var xMovesLeft = Math.Abs(diff.Item1);
+                        var yMovesLeft = Math.Abs(diff.Item2);
+                        var initCursor = controller2.Cursor;
+
+                        var xMove = diff.Item1 > 0 ? '>' : '<';
+                        var yMove = diff.Item2 > 0 ? 'v' : '^';
+
+                        // randomize the order of the moves
+                        var order = new List<char>();
+
+                        for (int j = 0; j < xMovesLeft; j++)
                         {
-                            if (controller2.Keypad[controller2.Cursor.Item2][controller2.Cursor.Item1 - 1] != 'X')
+                            order.Add(xMove);
+                        }
+                        for (int j = 0; j < yMovesLeft; j++)
+                        {
+                            order.Add(yMove);
+                        }
+                        order = order.OrderBy(_ => rand.Next()).ToList();
+
+                        tempLayer2 += order.Aggregate("", (agg, dir) => agg += dir);
+
+                        foreach (var c in tempLayer2)
+                        {
+                            var tempDiff = (0, 0);
+                            switch (c)
                             {
-                                layer1 += "<";
-                                xMovesLeft--;
+                                case '^':
+                                    tempDiff = (0, -1);
+                                    break;
+                                case 'v':
+                                    tempDiff = (0, 1);
+                                    break;
+                                case '<':
+                                    tempDiff = (-1, 0);
+                                    break;
+                                case '>':
+                                    tempDiff = (1, 0);
+                                    break;
                             }
+
+                            controller2.Cursor = (controller2.Cursor.Item1 + tempDiff.Item1, controller2.Cursor.Item2 + tempDiff.Item2);
+                            if (controller2.Keypad[controller2.Cursor.Item2][controller2.Cursor.Item1] == 'X')
+                            {
+                                bogus = true;
+                            }
+                                    
+                        }
+
+                        if (!bogus)
+                        {
+                            layer2 += tempLayer2;
+                            layer2 += "A";
                         }
                         else
                         {
-                            if (controller2.Keypad[controller2.Cursor.Item2][controller2.Cursor.Item1 + 1] != 'X')
-                            {
-                                layer1 += ">";
-                                xMovesLeft--;
-                            }
-                        }
-
-                        if (diff.Item2 < 0)
-                        {
-                            if (controller2.Keypad[controller2.Cursor.Item2 - 1][controller2.Cursor.Item1] != 'X')
-                            {
-                                layer1 += "^";
-                            }
-                            yMovesLeft--;
-
-                        }
-                        else
-                        {
-                            if (controller2.Keypad[controller2.Cursor.Item2 + 1][controller2.Cursor.Item1] != 'X')
-                            {
-                                layer1 += "v";
-                            }
-                            yMovesLeft--;
+                            i--;
+                            controller2.Cursor = initCursor;
                         }
                     }
-                    layer2 += "A";
-                    controller2.Cursor = (controller2.Cursor.Item1 + diff.Item1, controller2.Cursor.Item2 + diff.Item2);
-                }
-
-                for (int i = 0; i < layer2.Length; i++)
-                {
-                    var diff = controller1.DiffBetweenCursorAndChar(layer2[i]);
-                    var xMovesLeft = Math.Abs(diff.Item1);
-                    var yMovesLeft = Math.Abs(diff.Item2);
-
-                    while (xMovesLeft > 0 || yMovesLeft > 0)
+                    
+                    var layer3 = "";
+                    for (int i = 0; i < layer2.Length; i++)
                     {
-                        if (diff.Item1 < 0)
+                        var bogus = false;
+                        var diff = controller1.DiffBetweenCursorAndChar(layer2[i]);
+                        var xMovesLeft = Math.Abs(diff.Item1);
+                        var yMovesLeft = Math.Abs(diff.Item2);
+                        var initCursor = controller1.Cursor;
+
+                        var xMove = diff.Item1 > 0 ? '>' : '<';
+                        var yMove = diff.Item2 > 0 ? 'v' : '^';
+
+                        var tempLayer3 = "";
+
+                        // randomize the order of the moves
+                        var order = new List<char>();
+
+                        for (int j = 0; j < xMovesLeft; j++)
                         {
-                            if (controller1.Keypad[controller1.Cursor.Item2][controller1.Cursor.Item1 - 1] != 'X')
+                            order.Add(xMove);
+                        }
+                        for (int j = 0; j < yMovesLeft; j++)
+                        {
+                            order.Add(yMove);
+                        }
+                        order = order.OrderBy(_ => rand.Next()).ToList();
+
+                        tempLayer3 += order.Aggregate("", (agg, dir) => agg += dir);
+
+                        foreach (var c in tempLayer3)
+                        {
+                            var tempDiff = (0, 0);
+                            switch (c)
                             {
-                                layer1 += "<";
-                                xMovesLeft--;
+                                case '^':
+                                    tempDiff = (0, -1);
+                                    break;
+                                case 'v':
+                                    tempDiff = (0, 1);
+                                    break;
+                                case '<':
+                                    tempDiff = (-1, 0);
+                                    break;
+                                case '>':
+                                    tempDiff = (1, 0);
+                                    break;
                             }
+
+                            controller1.Cursor = (controller1.Cursor.Item1 + tempDiff.Item1, controller1.Cursor.Item2 + tempDiff.Item2);
+                            if (controller1.Keypad[controller1.Cursor.Item2][controller1.Cursor.Item1] == 'X')
+                            {
+                                bogus = true;
+                            }
+
+                        }
+                        if (!bogus)
+                        {
+                            layer3 += tempLayer3;
+                            layer3 += "A";
                         }
                         else
                         {
-                            if (controller1.Keypad[controller1.Cursor.Item2][controller1.Cursor.Item1 + 1] != 'X')
-                            {
-                                layer1 += ">";
-                                xMovesLeft--;
-                            }
-                        }
-
-                        if (diff.Item2 < 0)
-                        {
-                            if (controller1.Keypad[controller1.Cursor.Item2 - 1][controller1.Cursor.Item1] != 'X')
-                            {
-                                layer1 += "^";
-                            }
-                            yMovesLeft--;
-
-                        }
-                        else
-                        {
-                            if (controller1.Keypad[controller1.Cursor.Item2 + 1][controller1.Cursor.Item1] != 'X')
-                            {
-                                layer1 += "v";
-                            }
-                            yMovesLeft--;
+                            i--;
+                            controller1.Cursor = initCursor;
                         }
                     }
-                    layer3 += "A";
-                    controller1.Cursor = (controller1.Cursor.Item1 + diff.Item1, controller1.Cursor.Item2 + diff.Item2);
+
+                    if (layer3.Length < minLayer3.Length)
+                    {
+                        minLayer1 = layer1;
+                        minLayer2 = layer2;
+                        minLayer3 = layer3;
+                    }
+
                 }
 
-                finalLayers.Add(layer3);
+                Console.WriteLine(minLayer1);
+                Console.WriteLine(minLayer2);
+                Console.WriteLine(minLayer3);
+                finalLayers.Add(minLayer3);
             }
 
 
@@ -347,9 +425,16 @@ namespace AdventOfCode.Advent2024
                 Console.WriteLine();
             }
 
+            var nums = new List<int>();
+            nums.Add(803);
+            nums.Add(528);
+            nums.Add(586);
+            nums.Add(341);
+            nums.Add(319);
             for (int i = 0; i < finalLayers.Count; i++)
             {
                 Console.WriteLine(finalLayers[i].Length);
+                ans += nums[i] * finalLayers[i].Length;
             }
 
             return ans.ToString();
