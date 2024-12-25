@@ -171,7 +171,7 @@ y20 AND x20 -> vwh
 cjh XOR hsn -> z06
 grk XOR gcj -> z23
 sbn AND pwt -> qwg
-mnm XOR gqb -> dsk
+mnm XOR gqb -> z09
 tdh XOR jrb -> z44
 y04 XOR x04 -> ptv
 vwh OR vvc -> kgk
@@ -219,7 +219,7 @@ bwm AND jhr -> tvw
 wcs XOR gjv -> z07
 vcm OR ttt -> rnc
 jck OR wtd -> mjf
-gqb AND mnm -> gwh
+gqb AND mnm -> dsk
 wtc XOR jbp -> z18
 nbc OR mqh -> bwb
 y05 XOR x05 -> sfn
@@ -237,7 +237,7 @@ y35 XOR x35 -> prn
 x12 XOR y12 -> htr
 pwt XOR sbn -> z42
 gpp OR vmq -> mrg
-dsk OR ptc -> z09
+dsk OR ptc -> gwh
 cbm OR hgb -> jgf
 frv OR mhd -> vsw
 x09 AND y09 -> ptc

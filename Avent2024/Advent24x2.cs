@@ -33,14 +33,14 @@ namespace AdventOfCode.Advent2024
             BigInteger ans = 0;
 
             var gates = new List<Gate>();
-
+            var rand = new Random(1993);
             foreach (var str in stringArr)
             {
                 if (str.Contains(":"))
                 {
                     var vals = str.Split(":");
                     var gate = vals[0];
-                    var value = int.Parse(vals[1].Trim());
+                    var value = rand.Next(0, 2); //int.Parse(vals[1].Trim());
                     var baseGate = new Gate { GateName = gate, Op = value == 1 ? "ONE" : "ZERO" };
                     gates.Add(baseGate);
                 }
@@ -71,43 +71,15 @@ namespace AdventOfCode.Advent2024
             }
 
             gates.Sort((a, b) => a.GateName.CompareTo(b.GateName));
-            BigInteger zVal = 0;
-            int zCount = 0;
+
             BigInteger xVal = 0;
             int xCount = 0;
             BigInteger yVal = 0;
             int yCount = 0;
 
-            var zBinary = new List<int>();
             var xBinary = new List<int>();
             var yBinary = new List<int>();
-            var zAns = "01100111001011001011111100001000110010001110000";
-            zAns = zAns.Reverse().Aggregate("", (agg, a) => agg + a.ToString());
-            foreach (var gate in gates)
-            {
-                if (gate.GateName[0] == 'z')
-                {
-                    zBinary.Add(gate.Value);
-                    if (gate.Value.ToString() != zAns[zCount].ToString())
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    Console.WriteLine();
 
-                    Console.WriteLine(gate.Value + " - " + zAns[zCount] + "  " + gate.GateName + ": " + gate.LeftName + " " + gate.Op + " " + gate.RightName);
-
-                    PrintGates(gate, 1);
-
-                    Console.ForegroundColor = ConsoleColor.White;
-
-                    if (gate.Value == 1)
-                    {
-                        zVal += BigInteger.Pow(2, zCount);
-                    }
-                    zCount++;
-                }
-            }
-            zBinary.Reverse();
             foreach (var gate in gates)
             {
                 if (gate.GateName[0] == 'x')
@@ -136,10 +108,9 @@ namespace AdventOfCode.Advent2024
             }
             yBinary.Reverse();
 
-
             ans = yVal + xVal;
             var ansBinary = new List<int>();
-            for (int i = zCount; i >= 0; i--)
+            for (int i = 45; i >= 0; i--)
             {
                 if (ans - BigInteger.Pow(2, i) > 0)
                 {
@@ -151,19 +122,40 @@ namespace AdventOfCode.Advent2024
                     ansBinary.Add(0);
                 }
             }
+            ansBinary.Reverse();
+            var zAns = ansBinary;
 
-            //Console.WriteLine(ansBinary.Aggregate("", (agg, a) => agg + a.ToString()));
-            Console.WriteLine("01100111001011001011111100001000110010001110000");
-            //Console.WriteLine(xBinary.Aggregate("00", (agg, a) => agg + a.ToString()));
-            //Console.WriteLine(yBinary.Aggregate("00", (agg, a) => agg + a.ToString()));
-            Console.WriteLine();
+            BigInteger zVal = 0;
+            int zCount = 0;
+           
+            foreach (var gate in gates)
+            {
+                if (gate.GateName[0] == 'z')
+                {
+                    if (gate.Value.ToString() != zAns[zCount].ToString())
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    Console.WriteLine();
 
-            Console.WriteLine(zBinary.Aggregate("0", (agg, a) => agg + a.ToString()));
+                    Console.Write(gate.Value + " - " + zAns[zCount] + "  ");
 
+                    PrintGates(gate, 1);
 
-            Console.WriteLine(zVal);
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    if (gate.Value == 1)
+                    {
+                        zVal += BigInteger.Pow(2, zCount);
+                    }
+                    zCount++;
+                }
+            }
+
             Console.WriteLine(xVal);
             Console.WriteLine(yVal);
+            Console.WriteLine(zVal);
+
             ans = yVal + xVal;
 
             return ans.ToString();
