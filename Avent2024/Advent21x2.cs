@@ -153,7 +153,7 @@ namespace AdventOfCode.Advent2024
 
             BigInteger ans = 0;
 
-            var numberLayers = 26;
+            var numberLayers = 11;
 
             var finalLayers = new List<string>();
             var memo = new Dictionary<((int, int), (int, int)), string>();
@@ -263,12 +263,12 @@ namespace AdventOfCode.Advent2024
                             var yMovesLeft = Math.Abs(diff.Item2);
                             var initCursor = controller.Cursor;
 
-                            if (memo.TryGetValue((controller.Cursor, diff), out string val))
-                            {
-                                myLayer.Append(val);
-                                myLayer.Append('A');
-                                continue;
-                            }
+                            //if (memo.TryGetValue((controller.Cursor, diff), out string val))
+                            //{
+                            //    myLayer.Append(val);
+                            //    myLayer.Append('A');
+                            //    continue;
+                            //}
 
                             var xMove = diff.Item1 > 0 ? '>' : '<';
                             var yMove = diff.Item2 > 0 ? 'v' : '^';
