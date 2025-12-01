@@ -81,238 +81,238 @@
     <None Update="Advent2025\Day12\test.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent1.txt">
+    <None Update="Advent2023\TextFiles2023\Advent1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent10.txt">
+    <None Update="Advent2023\TextFiles2023\Advent10.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent10Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent10Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent10Example2.txt">
+    <None Update="Advent2023\TextFiles2023\Advent10Example2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent11.txt">
+    <None Update="Advent2023\TextFiles2023\Advent11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent11Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent11Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent12.txt">
+    <None Update="Advent2023\TextFiles2023\Advent12.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent12Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent12Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent13.txt">
+    <None Update="Advent2023\TextFiles2023\Advent13.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent13Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent13Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent14.txt">
+    <None Update="Advent2023\TextFiles2023\Advent14.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent14Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent14Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent2.txt">
+    <None Update="Advent2023\TextFiles2023\Advent2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent3.txt">
+    <None Update="Advent2023\TextFiles2023\Advent3.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent4.txt">
+    <None Update="Advent2023\TextFiles2023\Advent4.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent4Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent4Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent5.txt">
+    <None Update="Advent2023\TextFiles2023\Advent5.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent5Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent5Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent5Jace.txt">
+    <None Update="Advent2023\TextFiles2023\Advent5Jace.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent6.txt">
+    <None Update="Advent2023\TextFiles2023\Advent6.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent6Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent6Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent7.txt">
+    <None Update="Advent2023\TextFiles2023\Advent7.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent7Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent7Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent8.txt">
+    <None Update="Advent2023\TextFiles2023\Advent8.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent8Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent8Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent9.txt">
+    <None Update="Advent2023\TextFiles2023\Advent9.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Advent9Example.txt">
+    <None Update="Advent2023\TextFiles2023\Advent9Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2023\Triangle.txt">
+    <None Update="Advent2023\TextFiles2023\Triangle.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent1.txt">
+    <None Update="Advent2024\TextFiles2024\Advent1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent10.txt">
+    <None Update="Advent2024\TextFiles2024\Advent10.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent10Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent10Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent11.txt">
+    <None Update="Advent2024\TextFiles2024\Advent11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent11Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent11Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent12.txt">
+    <None Update="Advent2024\TextFiles2024\Advent12.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent12Example1.txt">
+    <None Update="Advent2024\TextFiles2024\Advent12Example1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent12Example2.txt">
+    <None Update="Advent2024\TextFiles2024\Advent12Example2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent12Example3.txt">
+    <None Update="Advent2024\TextFiles2024\Advent12Example3.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent13.txt">
+    <None Update="Advent2024\TextFiles2024\Advent13.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent13Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent13Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent14.txt">
+    <None Update="Advent2024\TextFiles2024\Advent14.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent14Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent14Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent15.txt">
+    <None Update="Advent2024\TextFiles2024\Advent15.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent15Example1.txt">
+    <None Update="Advent2024\TextFiles2024\Advent15Example1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent15Example2.txt">
+    <None Update="Advent2024\TextFiles2024\Advent15Example2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent16.txt">
+    <None Update="Advent2024\TextFiles2024\Advent16.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent16Example1.txt">
+    <None Update="Advent2024\TextFiles2024\Advent16Example1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent16Example2.txt">
+    <None Update="Advent2024\TextFiles2024\Advent16Example2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent17.txt">
+    <None Update="Advent2024\TextFiles2024\Advent17.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent17Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent17Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent18.txt">
+    <None Update="Advent2024\TextFiles2024\Advent18.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent18Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent18Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent19.txt">
+    <None Update="Advent2024\TextFiles2024\Advent19.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent19Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent19Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent2.txt">
+    <None Update="Advent2024\TextFiles2024\Advent2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent20.txt">
+    <None Update="Advent2024\TextFiles2024\Advent20.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent20Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent20Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent21.txt">
+    <None Update="Advent2024\TextFiles2024\Advent21.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent21Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent21Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent22.txt">
+    <None Update="Advent2024\TextFiles2024\Advent22.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent22Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent22Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent23.txt">
+    <None Update="Advent2024\TextFiles2024\Advent23.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent23Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent23Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent24.txt">
+    <None Update="Advent2024\TextFiles2024\Advent24.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent24Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent24Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent25.txt">
+    <None Update="Advent2024\TextFiles2024\Advent25.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent25Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent25Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent3.txt">
+    <None Update="Advent2024\TextFiles2024\Advent3.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent4.txt">
+    <None Update="Advent2024\TextFiles2024\Advent4.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent5.txt">
+    <None Update="Advent2024\TextFiles2024\Advent5.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent5Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent5Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent6.txt">
+    <None Update="Advent2024\TextFiles2024\Advent6.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent6Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent6Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent7.txt">
+    <None Update="Advent2024\TextFiles2024\Advent7.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent7Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent7Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent8.txt">
+    <None Update="Advent2024\TextFiles2024\Advent8.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent8Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent8Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent9.txt">
+    <None Update="Advent2024\TextFiles2024\Advent9.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TextFiles2024\Advent9Example.txt">
+    <None Update="Advent2024\TextFiles2024\Advent9Example.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
