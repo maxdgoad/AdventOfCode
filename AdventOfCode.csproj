@@ -245,4 +245,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TextFiles2025\" />
+  </ItemGroup>
+
 </Project>
