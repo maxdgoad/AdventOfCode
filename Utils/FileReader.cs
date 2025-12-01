@@ -1,7 +1,7 @@
 ﻿namespace AdventOfCode.Utils;
 internal static class FileReader
 {
-    static string FilePath = "\\TextFiles2025\\";
+    static string FilePath = "\\Advent2025\\";
     public static List<List<string>> ReadFile(string fileName, string splitter = "")
     {
         var response = new List<List<string>>();
