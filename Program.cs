@@ -1,8 +1,7 @@
-﻿using AdventOfCode.Advent2024;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 Console.WriteLine("Starting program:");
 Stopwatch stopwatch = new Stopwatch(); stopwatch.Start();
-var output = Advent24x2.Run();
+var output = AdventOfCode.Advent2025.Day01.Part1.Run();
 Console.WriteLine($"Answer: {output}");
 Console.WriteLine($"Ran in {stopwatch.Elapsed.TotalSeconds} seconds");
