@@ -13,9 +13,8 @@ internal class Part1
         var arrow = 50;
         foreach (var instruction in instructions)
         {
-            var distance = int.Parse(instruction[1..]);
-            arrow = arrow + (instruction[0] == 'L' ? -1 : 1) * distance;
-            ans = ans + (arrow % 100 == 0 ? 1 : 0);
+            arrow += (instruction[0] == 'L' ? -1 : 1) * int.Parse(instruction[1..]);
+            ans += (arrow % 100 == 0 ? 1 : 0);
             Console.WriteLine($"{instruction} : {arrow}");
         }
 
