@@ -2,6 +2,6 @@
 
 Console.WriteLine("Starting program:");
 Stopwatch stopwatch = new Stopwatch(); stopwatch.Start();
-var output = AdventOfCode.Advent2025.Day01.Part2.Run();
+var output = AdventOfCode.Advent2025.Day02.Part2.Run();
 Console.WriteLine($"Answer: {output}");
 Console.WriteLine($"Ran in {stopwatch.Elapsed.TotalSeconds} seconds");
